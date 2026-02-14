@@ -14,9 +14,9 @@ if (noButton) {
 let currentQuestion = 0;
 const quizData = [
     {
-        question: "Where did we first meet?",
-        options: ["School", "Park", "Cafe", "Library"],
-        answer: 0
+        question: "What do you call me?",
+        options: ["Parvati", "Darling", "Love", "All of them!"],
+        answer: 3
     },
     {
         question: "Something I am really good at?",
@@ -24,14 +24,14 @@ const quizData = [
         answer: 2
     },
     {
-        question: "something I would choose without hesitation?",
+        question: "Something I would choose without hesitation?",
         options: ["Pizza", "Pani Puri", "Ice Cream", "Chocolates"],
         answer: 1
     },
     {
         question: "Who said 'I Love You' first?",
         options: ["You", "Me", "We both did at the same time", "No one did!"],
-        answer: 1
+        answer: 0
     },
     {
         question: "What is that one thing that can instantly make me smile?",
@@ -86,4 +86,5 @@ function checkAnswer(selected) {
 window.onload = () => {
     if(document.getElementById('question')) loadQuestion();
 };
+
 
