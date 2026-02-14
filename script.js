@@ -1,16 +1,17 @@
-// No button moving trick
-const noButton = document.getElementById('no');
-if (noButton) {
-    noButton.addEventListener('mouseover', () => {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 100);
-        noButton.style.position = 'absolute';
-        noButton.style.left = x + 'px';
-        noButton.style.top = y + 'px';
-    });
+// ==================== FALLING HEARTS (all pages) ====================
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
 }
 
-// Quiz logic
+// Hearts appear every 300ms
+setInterval(createHeart, 300);
+
+// ==================== QUIZ DATA ====================
 let currentQuestion = 0;
 const quizData = [
     {
@@ -49,16 +50,21 @@ const quizData = [
         answer: 3
     }
 ];
-
+// ==================== LOAD QUIZ QUESTIONS ====================
 function loadQuestion() {
+    if (!document.getElementById('question')) return; // only run on quiz page
+
     if (currentQuestion >= quizData.length) {
         window.location.href = 'finale.html';
         return;
     }
+
     const q = quizData[currentQuestion];
     document.getElementById('question').innerText = q.question;
+
     const optionsContainer = document.getElementById('options');
     optionsContainer.innerHTML = '';
+
     q.options.forEach((opt, idx) => {
         const button = document.createElement('button');
         button.classList.add('option');
@@ -68,21 +74,27 @@ function loadQuestion() {
     });
 }
 
+// ==================== CHECK ANSWER + CONFETTI ====================
 function checkAnswer(selected) {
     const q = quizData[currentQuestion];
     const buttons = document.querySelectorAll('.option');
+
     if (selected === q.answer) {
         buttons[selected].classList.add('correct');
-        celebrate(); // <-- ADD THIS LINE HERE for confetti
+        celebrate(); // 🎉 confetti for correct answer
     } else {
         buttons[selected].classList.add('wrong');
         buttons[q.answer].classList.add('correct');
     }
+
     setTimeout(() => {
         currentQuestion++;
         loadQuestion();
     }, 1000);
-    function celebrate() {
+}
+
+// ==================== CONFETTI FUNCTION ====================
+function celebrate() {
     const colors = ['#ff6f91','#ff92a9','#ffafbd','#ffc3a0','#ff355e','#ffccf9'];
     for (let i = 0; i < 30; i++) {
         const confetti = document.createElement('div');
@@ -101,30 +113,30 @@ function checkAnswer(selected) {
     }
 }
 
-@keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity:1; }
-    100% { transform: translateY(100px) rotate(360deg); opacity:0; }
-}
+// ==================== FINALE PAGE FLOATING HEARTS ====================
+if(window.location.pathname.includes('finale.html')){
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'finale-heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }, 500);
 }
 
+// ==================== INITIALIZE ====================
 window.onload = () => {
-    if(document.getElementById('question')) loadQuestion();
+    loadQuestion();
+    
+    // No button moving trick (on index.html)
+    const noButton = document.getElementById('no');
+    if (noButton) {
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noButton.style.position = 'absolute';
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        });
+    }
 };
-// Create falling hearts
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.style.animationDuration = 3 + Math.random() * 3 + 's';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000); // remove after animation
-}
-
-// Generate hearts every 300ms
-setInterval(createHeart, 300);
-
-
-
-
-
-
