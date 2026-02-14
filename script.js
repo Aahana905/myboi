@@ -82,7 +82,6 @@ function checkAnswer(selected) {
         currentQuestion++;
         loadQuestion();
     }, 1000);
-}
     function celebrate() {
     const colors = ['#ff6f91','#ff92a9','#ffafbd','#ffc3a0','#ff355e','#ffccf9'];
     for (let i = 0; i < 30; i++) {
@@ -123,6 +122,7 @@ function createHeart() {
 
 // Generate hearts every 300ms
 setInterval(createHeart, 300);
+
 
 
 
