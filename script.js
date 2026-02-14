@@ -81,6 +81,29 @@ function checkAnswer(selected) {
         currentQuestion++;
         loadQuestion();
     }, 1000);
+    function celebrate() {
+    const colors = ['#ff6f91','#ff92a9','#ffafbd','#ffc3a0','#ff355e','#ffccf9'];
+    for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'fixed';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.top = Math.random() * window.innerHeight + 'px';
+        confetti.style.opacity = 1;
+        confetti.style.borderRadius = '50%';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.animation = `fall 1.5s forwards`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 1500);
+    }
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity:1; }
+    100% { transform: translateY(100px) rotate(360deg); opacity:0; }
+}
 }
 
 window.onload = () => {
@@ -98,6 +121,7 @@ function createHeart() {
 
 // Generate hearts every 300ms
 setInterval(createHeart, 300);
+
 
 
 
