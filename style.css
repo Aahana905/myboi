@@ -1,0 +1,76 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    margin-top: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 5px #ff6f91;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff6f91;
+    color: #fff;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff92a9;
+}
+
+button#no {
+    position: relative;
+    transition: 0.3s;
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.quiz-container p {
+    font-size: 20px;
+}
+
+.option {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background: #ffafbd;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.option:hover {
+    background: #ff6f91;
+}
+
+.correct {
+    background: #00c851 !important;
+}
+
+.wrong {
+    background: #ff3547 !important;
+}
+
+.finale-message {
+    font-size: 28px;
+    margin-top: 100px;
+    color: #fff;
+    text-shadow: 2px 2px 5px #ff6f91;
+}
