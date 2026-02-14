@@ -19,33 +19,33 @@ const quizData = [
         answer: 0
     },
     {
-        question: "My weirdest habit?",
-        options: ["Talking to myself", "Eating at night", "Singing in shower", "Collecting pens"],
+        question: "Something I am really good at?",
+        options: ["Dancing", "Talking", "Loving you", "Games"],
         answer: 2
     },
     {
-        question: "Favorite snack I steal from you?",
-        options: ["Chocolates", "Chips", "Ice Cream", "Cookies"],
-        answer: 0
-    },
-    {
-        question: "My go-to karaoke song?",
-        options: ["Song A", "Song B", "Song C", "Song D"],
+        question: "something I would choose without hesitation?",
+        options: ["Pizza", "Pani Puri", "Ice Cream", "Chocolates"],
         answer: 1
     },
     {
-        question: "My guilty pleasure show?",
-        options: ["Show A", "Show B", "Show C", "Show D"],
-        answer: 2
+        question: "Who said 'I Love You' first?",
+        options: ["You", "Me", "We both did at the same time", "No one did!"],
+        answer: 1
     },
     {
-        question: "First movie we watched together?",
-        options: ["Movie A", "Movie B", "Movie C", "Movie D"],
+        question: "What is that one thing that can instantly make me smile?",
+        options: ["You", "Flowers", "Movie scene", "Food"],
         answer: 0
     },
     {
-        question: "My most repeated joke?",
-        options: ["Joke A", "Joke B", "Joke C", "Joke D"],
+        question: "My favourite colour?",
+        options: ["Black", "Pink", "Purple", "White"],
+        answer: 1
+    },
+    {
+        question: "If I could travel anywhere, where would I go?",
+        options: ["Mumbai", "The whole world", "Park next road", "Nowhere"],
         answer: 3
     }
 ];
@@ -86,3 +86,4 @@ function checkAnswer(selected) {
 window.onload = () => {
     if(document.getElementById('question')) loadQuestion();
 };
+
