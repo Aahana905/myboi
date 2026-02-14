@@ -1,3 +1,4 @@
+/* ==================== GENERAL STYLING ==================== */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background: linear-gradient(135deg, #ffafbd, #ffc3a0);
@@ -5,6 +6,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 h1, h2 {
@@ -74,7 +76,8 @@ button#no {
     color: #fff;
     text-shadow: 2px 2px 5px #ff6f91;
 }
-/* Heart animation */
+
+/* ==================== HEART ANIMATION (ALL PAGES) ==================== */
 .heart {
   position: fixed;
   width: 30px;
@@ -91,3 +94,24 @@ button#no {
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
+/* ==================== CONFETTI ==================== */
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity:1; }
+    100% { transform: translateY(100px) rotate(360deg); opacity:0; }
+}
+
+/* ==================== FINALE PAGE FLOATING HEARTS ==================== */
+.finale-heart {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('https://i.postimg.cc/8z1KZsm1/heart.png') no-repeat center;
+  background-size: contain;
+  animation: floatRotate 5s linear infinite;
+}
+
+@keyframes floatRotate {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-200px) rotate(180deg); opacity: 0.7; }
+  100% { transform: translateY(-400px) rotate(360deg); opacity: 0; }
+}
