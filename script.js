@@ -86,5 +86,18 @@ function checkAnswer(selected) {
 window.onload = () => {
     if(document.getElementById('question')) loadQuestion();
 };
+// Create falling hearts
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000); // remove after animation
+}
+
+// Generate hearts every 300ms
+setInterval(createHeart, 300);
+
 
 
